@@ -1,0 +1,71 @@
+/* Setup Terminal — 컴포넌트. tokens.css 다음에 불러. 클래스는 전부 st- 로 시작. */
+
+/* Step: ▶ 진행 줄 */
+.st-step { display: flex; gap: var(--space-2); align-items: baseline; padding: 2px var(--space-2); border-radius: var(--radius-sm);
+  font-family: var(--font-mono); font-size: 14px; line-height: 22px; font-weight: 500; color: var(--ink); }
+.st-step::before { content: "▶"; color: var(--pink); flex: none; }
+.st-step .st-meta { color: var(--muted); font-weight: 400; }
+.st-step.is-active { background: var(--pink-soft); }
+.st-step.is-done, .st-step.is-done::before { color: var(--ok); }
+.st-step.is-warn, .st-step.is-warn::before { color: var(--warn); }
+.st-step.is-error, .st-step.is-error::before { color: var(--error); }
+.st-step.is-error::before { content: "✕"; }
+
+/* Badge: 상태 배지 */
+.st-badge { display: inline-flex; align-items: center; gap: var(--space-1); padding: 0 var(--space-2); border: 1px solid currentColor;
+  border-radius: var(--radius-sm); font-family: var(--font-mono); font-size: 12px; line-height: 20px; color: var(--muted); white-space: nowrap; }
+.st-badge.is-ok { color: var(--ok); }
+.st-badge.is-warn { color: var(--warn); }
+.st-badge.is-error { color: var(--error); }
+.st-badge.is-pink { color: var(--pink); }
+
+/* Terminal: 출력 블록 */
+.st-term { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; }
+.st-term-head { display: flex; justify-content: space-between; gap: var(--space-2); padding: var(--space-2) var(--space-4);
+  border-bottom: 1px solid var(--line); font-family: var(--font-mono); font-size: 12px; line-height: 16px; color: var(--muted); }
+.st-term-body { display: grid; gap: 2px; padding: var(--space-4) calc(var(--space-4) - var(--space-2)); overflow-x: auto; }
+.st-term-body .st-out { padding: 0 var(--space-2); font-family: var(--font-mono); font-size: 13px; line-height: 20px; color: var(--muted); white-space: pre; }
+
+/* Section: ===== 제목 ===== */
+.st-section { display: flex; align-items: center; gap: var(--space-4); margin: 0; font-family: var(--font-sans);
+  font-size: 22px; line-height: 30px; font-weight: 600; color: var(--ink); text-wrap: balance; }
+.st-section::before, .st-section::after { content: ""; flex: 1 1 var(--space-8); min-width: var(--space-4); height: 1px; background: var(--line); }
+.st-section::before { flex: 0 0 var(--space-8); }
+
+/* Done: 결과 한마디 */
+.st-done { margin: 0; font-family: var(--font-sans); font-size: 40px; line-height: 44px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+.st-done em { font-style: normal; color: var(--pink); }
+
+/* Button */
+.st-btn { display: inline-flex; align-items: center; gap: var(--space-2); padding: var(--space-2) var(--space-4); border: 1px solid var(--pink);
+  border-radius: var(--radius-md); background: var(--pink); color: var(--ground); font: 600 14px/20px var(--font-sans); cursor: pointer; text-decoration: none; }
+.st-btn:hover { filter: brightness(1.08); }
+.st-btn:focus-visible { outline: 2px solid var(--pink); outline-offset: 2px; }
+.st-btn.is-quiet { background: transparent; color: var(--ink); border-color: var(--line); }
+.st-btn.is-quiet:hover { border-color: var(--pink); filter: none; }
+
+/* Code: 인라인 코드 */
+.st-code, .st-post :not(pre) > code { padding: 1px var(--space-1); border-radius: var(--radius-sm); background: var(--pink-soft); color: var(--ink);
+  font-family: var(--font-mono); font-size: 0.88em; }
+
+/* Post: 블로그 글 본문 */
+.st-post { max-width: 680px; margin-inline: auto; font-family: var(--font-sans); font-size: 16px; line-height: 28px; color: var(--ink); }
+.st-post > * + * { margin-top: var(--space-4); }
+.st-post h1 { font-size: 36px; line-height: 42px; font-weight: 700; letter-spacing: -0.01em; margin: 0; text-wrap: balance; }
+.st-post h2 { font-size: 22px; line-height: 30px; font-weight: 600; margin-top: var(--space-8); display: flex; align-items: center; gap: var(--space-4); }
+.st-post h2::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+.st-post h3 { font-size: 17px; line-height: 26px; font-weight: 600; margin-top: var(--space-8); }
+.st-post a { color: var(--pink); text-underline-offset: 3px; }
+.st-post ul, .st-post ol { padding-left: 1.4em; }
+.st-post li + li { margin-top: var(--space-1); }
+.st-post ul { list-style: none; padding-left: 0; }
+.st-post ul > li { padding-left: 1.4em; position: relative; }
+.st-post ul > li::before { content: "▶"; position: absolute; left: 0; top: 0; color: var(--pink); font-size: 0.7em; }
+.st-post blockquote { margin-inline: 0; padding: var(--space-2) var(--space-4); border: 1px solid var(--line); border-radius: var(--radius-md); background: var(--surface); color: var(--muted); }
+.st-post pre { margin-inline: 0; padding: var(--space-4); background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-md);
+  overflow-x: auto; font-family: var(--font-mono); font-size: 13px; line-height: 20px; }
+.st-post img { max-width: 100%; height: auto; border-radius: var(--radius-md); border: 1px solid var(--line); }
+.st-post hr { border: 0; height: 1px; background: var(--line); margin-block: var(--space-8); }
+.st-post table { border-collapse: collapse; width: 100%; font-size: 14px; }
+.st-post th, .st-post td { border-bottom: 1px solid var(--line); padding: var(--space-2); text-align: left; }
+.st-post-meta { font-family: var(--font-mono); font-size: 12px; line-height: 16px; color: var(--muted); }
