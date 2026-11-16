@@ -1,0 +1,57 @@
+/* Setup Terminal — design-system/tokens.json에서 생성됨. 직접 고치지 말고 node scripts/build-tokens.mjs */
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+KR:wght@400;600;700&display=swap");
+:root {
+  --ground: #f6f5f7;
+  --surface: #ffffff;
+  --line: #dcd8e0;
+  --ink: #1f1b24;
+  --muted: #625b6b;
+  --pink: #b8326a;
+  --pink-soft: #fae6ee;
+  --ok: #2f7d4f;
+  --warn: #9a5b00;
+  --error: #b3261e;
+  --font-sans: "IBM Plex Sans KR", "Apple SD Gothic Neo", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", "D2Coding", ui-monospace, Menlo, monospace;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-4: 16px;
+  --space-8: 32px;
+  --radius-sm: 2px;
+  --radius-md: 6px;
+  --radius-lg: 10px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ground: #16141a;
+    --surface: #211e26;
+    --line: #36313d;
+    --ink: #ece8f0;
+    --muted: #a59fae;
+    --pink: #f07aa8;
+    --pink-soft: #4a2234;
+    --ok: #6fcf97;
+    --warn: #f0b45a;
+    --error: #f2867d;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --ground: #16141a;
+  --surface: #211e26;
+  --line: #36313d;
+  --ink: #ece8f0;
+  --muted: #a59fae;
+  --pink: #f07aa8;
+  --pink-soft: #4a2234;
+  --ok: #6fcf97;
+  --warn: #f0b45a;
+  --error: #f2867d;
+  color-scheme: dark;
+}
+.t-display { font-family: var(--font-sans); font-size: 40px; line-height: 44px; font-weight: 700; }
+.t-heading { font-family: var(--font-sans); font-size: 22px; line-height: 30px; font-weight: 600; }
+.t-body { font-family: var(--font-sans); font-size: 15px; line-height: 24px; font-weight: 400; }
+.t-step { font-family: var(--font-mono); font-size: 14px; line-height: 22px; font-weight: 500; }
+.t-code { font-family: var(--font-mono); font-size: 13px; line-height: 20px; font-weight: 400; }
+.t-caption { font-family: var(--font-mono); font-size: 12px; line-height: 16px; font-weight: 400; letter-spacing: 0.02em; }
